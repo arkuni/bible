@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+        <bean id="checkControllerAspect" class="common.util.aop.controller.ControllerAspect"/>
+        <aop:config>
+                <aop:pointcut id="controllerPointcut" expression="execution(public * com.arkuni.bible..controller.*.*(..))"/>
+                <aop:aspect id="controllerCheck" ref="checkControllerAspect" order="10">
+                        <aop:around method="checkController" pointcut-ref="controllerPointcut"/>
+                </aop:aspect>
+        </aop:config>
+</beans>

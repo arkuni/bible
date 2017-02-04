@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://mybatis.org/schema/mybatis-spring
+                            http://mybatis.org/schema/mybatis-spring.xsd">
+
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+                <property name="jndiName" value="java:comp/env/jdbc/mariadb"/>
+                <property name="resourceRef" value="true"/>
+        </bean>
+
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+                <property name="dataSource" ref="dataSource"/>
+                <property name="mapperLocations">
+                        <array>
+                                <value>classpath:/com/arkuni/bible/db/maria/bible/mapper/*.xml</value>
+                        </array>
+                </property>
+        </bean>
+
+        <mybatis:scan base-package="com.arkuni.bible.db.maria.bible.mapper" factory-ref="sqlSessionFactory"/>
+
+        <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+                <constructor-arg index="0" ref="sqlSessionFactory"/>
+        </bean>
+
+        <bean id="oracleTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+                <property name="dataSource" ref="dataSource"/>
+        </bean>
+
+        <aop:config proxy-target-class="true">
+                <aop:pointcut id="serviceOperation" expression="execution(public * com.arkuni.bible..service.*Service.*(..))" />
+                <aop:advisor id="transactionAdvisor" pointcut-ref="serviceOperation" advice-ref="txAdvice"/>
+        </aop:config>
+
+        <tx:advice id="txAdvice" transaction-manager="oracleTransactionManager">
+                <tx:attributes>
+                        <tx:method name="insert*" rollback-for="Exception"/>
+                        <tx:method name="update*" rollback-for="Exception"/>
+                        <tx:method name="remove*" rollback-for="Exception"/>
+                </tx:attributes>
+        </tx:advice>
+
+</beans>

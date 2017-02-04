@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+                        http://java.sun.com/xml/ns/javaee/web-jsptagLibrary_2_1.xsd"
+	version="2.1">
+	<tlib-version>1.2</tlib-version>
+	<uri>http://common.arkuni.net/web_util</uri>
+	<function>
+		<name>selected</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String selected(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>checked</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String checked(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>checkedArr</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String checked(java.lang.String[], java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>readOnly</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String readOnly(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>readOnlyBool</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String readOnly(boolean)</function-signature>
+	</function>
+	<function>
+		<name>disabled</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String disabled(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>reduceStr</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String reduceStr(java.lang.String, int, int)</function-signature>
+	</function>
+	<function>
+		<name>disabledBool</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String disabled(boolean)</function-signature>
+	</function>
+	<function>
+		<name>centerMasking</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String centerMasking(java.lang.String, int)</function-signature>
+	</function>
+	<function>
+		<name>firstMasking</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String firstMasking(java.lang.String, int)</function-signature>
+	</function>
+	<function>
+		<name>endMasking</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String endMasking(java.lang.String, int)</function-signature>
+	</function>
+	<function>
+		<name>textToHTML</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String textToHTML(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>htmlToText</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String htmlToText(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>displayTag</name>
+		<function-class>common.util.WebUtil</function-class>
+		<function-signature>java.lang.String displayTag(java.lang.String)</function-signature>
+	</function>
+</taglib>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.arkuni.bible.db.maria.bible.mapper.BibleContentsMapper">
+ 
+  <select id="getData" resultType="hashMap">
+    SELECT tag, index_cd, jang, seq FROM bible_contents_tag WHERE NO = 1;
+  </select>
+  <select id="search" resultType="hashMap">
+    SELECT tag, index_cd, jang, seq FROM bible_contents_tag WHERE NO = 1;
+  </select>
+</mapper>
