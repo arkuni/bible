@@ -16,7 +16,7 @@ public class BibleSearchService {
 		return dao.getData();
 	}
 
-	public HashMap<String, Object> search() {
-		return dao.search();
+	public HashMap<String, Object> today() {
+		return dao.today();
 	}
 }

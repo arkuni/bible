@@ -15,18 +15,18 @@ public class BibleSearchController {
 	@Autowired
 	private BibleSearchService service;
 	
-	@RequestMapping("/data.hnt")
+	@RequestMapping("/data.do")
 	 public ModelAndView hello(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("data");
 		mv.addObject("data", service.getData());
 		return mv;
 	}
-	@RequestMapping("/search.hnt")
+	@RequestMapping("/today.do")
 	 public ModelAndView todayweek(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("data");
-		mv.addObject("data", service.search());
+		mv.addObject("data", service.today());
 		return mv;
 	}
 }

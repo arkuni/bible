@@ -5,5 +5,5 @@ import java.util.HashMap;
 public interface BibleContentsMapper {
 	public HashMap<String, Object> getData();
 
-	public HashMap<String, Object> search();
+	public HashMap<String, Object> today();
 }
