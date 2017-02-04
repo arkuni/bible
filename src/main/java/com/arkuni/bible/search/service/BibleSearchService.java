@@ -1,6 +1,7 @@
 package com.arkuni.bible.search.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class BibleSearchService {
 		return dao.getData();
 	}
 
-	public HashMap<String, Object> today() {
+	public List<HashMap<String, Object>> today() {
 		return dao.today();
 	}
 }

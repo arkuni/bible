@@ -9,8 +9,8 @@
   <select id="today" resultType="hashMap">
     SELECT seq, jang, jul, contents
     FROM arkuni_bible.bible_contents 
-    WHERE index_cd = 'PR' AND jang = #{jang}
-    ORDER BY jul ASC
+    WHERE index_cd = 'PR' AND jang = (SELECT CAST(DATE_FORMAT(NOW(),'%D') AS UNSIGNED))
+    ORDER BY CAST(jul AS UNSIGNED) ASC
   </select>
   <select id="search" resultType="hashMap">
     SELECT seq, jang, jul, contents

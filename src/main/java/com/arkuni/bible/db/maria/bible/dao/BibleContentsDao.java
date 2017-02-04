@@ -1,6 +1,7 @@
 package com.arkuni.bible.db.maria.bible.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,7 @@ public class BibleContentsDao {
 		return mapper.getData();
 	}
 
-	public HashMap<String, Object> today() {
+	public List<HashMap<String, Object>> today() {
 		return mapper.today();
 	}
 }

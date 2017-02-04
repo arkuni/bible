@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arkuni.bible.search.service.BibleSearchService;
 
+import common.util.HNTTrans;
+
 @Controller
 public class BibleSearchController {
 	@Autowired
@@ -23,9 +25,24 @@ public class BibleSearchController {
 		return mv;
 	}
 	@RequestMapping("/today.do")
-	 public ModelAndView todayweek(HttpServletRequest request, Model model) {
+	 public ModelAndView today(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("data");
+		mv.setViewName("today");
+		mv.addObject("data", service.today());
+		return mv;
+	}
+	@RequestMapping("/search.do")
+	 public ModelAndView search(HttpServletRequest request, Model model) {
+		ModelAndView mv = new ModelAndView();
+		String str = HNTTrans.trim(request.getParameter("str"));
+		if (str.equals("")) {
+			//error
+		}
+		if (str.indexOf(":") < 0) {
+			//장의 전체
+		}
+		String juls = str.split(":")[1];
+		mv.setViewName("search");
 		mv.addObject("data", service.today());
 		return mv;
 	}
